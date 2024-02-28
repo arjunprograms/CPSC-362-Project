@@ -1,4 +1,4 @@
-import { createReducer, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
@@ -19,6 +19,9 @@ const userSlice = createSlice({
             state.user = null;
             localStorage?.removeItem("user");
         },
+        updateProfile(state, action){
+            state.edit = action.payload;
+        }
     },
 });
 
