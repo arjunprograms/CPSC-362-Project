@@ -7,7 +7,9 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({mode:"onChange",});
+  } = useForm({
+    mode:"onChange",
+  });
 
   return (
     <div className="bg-bgcolor w-full h-[100vh] flex items-center justify-center p-6">
@@ -38,8 +40,20 @@ const Login = () => {
               register={register("email", {
                 required: "Email Address is required",
               })}
-
               error={errors.email ? errors.email.message : ""}
+            />
+
+            <TextInput
+              name='password'
+              label='Password'
+              placeholder='Password'
+              type='password'
+              styles='w-full rounded-full'
+              labelStyle='ml-2'
+              register={register("password", {
+                required: "Password is required!",
+              })}
+              error={errors.password ? errors.password?.message : ""}
             />
           </form>
         </div>
