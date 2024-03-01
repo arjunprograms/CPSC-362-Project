@@ -61,7 +61,16 @@ const Login = () => {
               to='/reset-password'
               className="text-sm text-right text-blue font-semibold"
             >
-            Forgot Password?</Link>
+              Forgot Password?
+            </Link>
+
+            {errMsg?.message && (
+                <span className={''}>
+                  {errMsg?.message}
+                </span>
+              )
+            }
+
           </form>
         </div>
         {/* Right */}
