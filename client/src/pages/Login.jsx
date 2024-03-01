@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import { FaReact as DailySocial } from "react-icons/fa";
 import  TextInput  from "../components/TextInput";
 import { useForm } from "react-hook-form";
@@ -55,6 +56,12 @@ const Login = () => {
               })}
               error={errors.password ? errors.password?.message : ""}
             />
+
+            <Link
+              to='/reset-password'
+              className="text-sm text-right text-blue font-semibold"
+            >
+            Forgot Password?</Link>
           </form>
         </div>
         {/* Right */}
