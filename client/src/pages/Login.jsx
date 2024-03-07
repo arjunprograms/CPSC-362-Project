@@ -1,8 +1,13 @@
-import React from "react";
-import {Link} from "react-router-dom"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaReact as DailySocial } from "react-icons/fa";
-import  TextInput  from "../components/TextInput";
+import { TextInput } from "../components";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import Loading from "../components/Loading";  // Adjust the path accordingly
+import CustomButton from "../components/CustomButton";  // Adjust the path accordingly
+
+
 const Login = () => {
   const {
     register,
@@ -12,6 +17,10 @@ const Login = () => {
     mode:"onChange",
   });
 
+  const [errMsg, setErrMsg] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const dispatch = useDispatch()
+  
   return (
     <div className="bg-bgcolor w-full h-[100vh] flex items-center justify-center p-6">
       <div className="w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex bg-primary rounded-xl overflow-hidden shadow-xl">
@@ -65,15 +74,32 @@ const Login = () => {
             </Link>
 
             {errMsg?.message && (
-                <span className={''}>
+                <span className={`text-sm ${
+                  errMsg?.status == "failed" ? "text-[#f64949fe]"
+                  : "text-[#2ba150fe]"
+                } mt-0.5`}>
                   {errMsg?.message}
                 </span>
-              )
-            }
+              )}
+
+                
+                  {isSubmitting ? (
+                  <Loading/>
+                  ) : (
+                  <CustomButton
+                  type="submit"
+                  containerStyles = {`inline-flex justify-center rounded-md 
+                  bg-blue px-8 py-3 text-sm font-medium text-white 
+                  outline-none`}
+                  title='Login'
+                  />
+
+                )}
+              
 
           </form>
         </div>
-        {/* Right */}
+        {/* RIGHT */}
         <div></div>
       </div>
     </div>
@@ -81,3 +107,7 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+
