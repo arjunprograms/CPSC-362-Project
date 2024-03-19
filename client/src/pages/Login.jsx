@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import Loading from "../components/Loading";  // Adjust the path accordingly
 import CustomButton from "../components/CustomButton";  // Adjust the path accordingly
+import { BgImage } from "../assets";
 
 
 const Login = () => {
@@ -98,9 +99,27 @@ const Login = () => {
               
 
           </form>
+
+          <p className="text-ascent-2 text-sm text-center">
+            Don't have an account?
+            <Link
+              to='/register'
+              className="text-[#065ad8] font-semibold ml-2 cursor-pointer"
+            >
+              Create Account
+            </Link>
+          </p>
         </div>
         {/* RIGHT */}
-        <div></div>
+        <div className="hidden w-1/2 h-full lg:flex flex-col items-center justify-center bg-blue">
+          <div className="relative w-full flex items-center justify-center">
+            <img 
+              src={BgImage} 
+              alt="Bg Image"
+              className="w-48 2xl:w-64 h-48 2xl:h-64 rounded-full object-cover"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
