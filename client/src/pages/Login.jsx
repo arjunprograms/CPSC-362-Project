@@ -21,6 +21,10 @@ const Login = () => {
     mode:"onChange",
   });
 
+const onSubmit = async(data)=> {
+  
+}
+
   const [errMsg, setErrMsg] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch()
@@ -43,7 +47,8 @@ const Login = () => {
           </p>
           <span className="text-sm mt-2 text-ascent-2 py">Welcome back</span>
 
-          <form className="py-8 flex flex-col gap-5">
+          <form className="py-8 flex flex-col gap-5"
+          onSubmit={handleSubmit(onSubmit)}>
             <TextInput
               name='email'
               placeholder='email@example.com'
@@ -137,6 +142,15 @@ const Login = () => {
                 <span className="text-xs font-medium">Interact</span>
             </div>
             
+          </div>
+
+          <div className="mt-16 text-center">
+            <p className="text-white text-base">
+              Connect with friends & share for fun!
+            </p>
+            <span className="text-sm text-white/80">
+              Share memories with friends and the world!
+            </span>
           </div>
         </div>
       </div>
