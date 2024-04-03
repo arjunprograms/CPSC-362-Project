@@ -47,8 +47,10 @@ const onSubmit = async(data)=> {
           </p>
           <span className="text-sm mt-2 text-ascent-2 py">Welcome back</span>
 
-          <form className="py-8 flex flex-col gap-5"
-          onSubmit={handleSubmit(onSubmit)}>
+          <form 
+            className="py-8 flex flex-col gap-5"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <TextInput
               name='email'
               placeholder='email@example.com'
