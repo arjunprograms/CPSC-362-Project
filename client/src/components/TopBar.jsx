@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form';
 import { BsMoon, BsSunFill } from 'react-icons/bs';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { SetTheme } from '../redux/theme';
+import { Logout } from '../redux/userSlice';
 
 const TopBar = () => {
   const {theme} = useSelector((state)=>state.theme);
@@ -58,8 +59,15 @@ const TopBar = () => {
             <div className='hidden lg:flex'>
                 <IoMdNotificationsOutline />
             </div>
-        </div>
 
+            <div>
+                <CustomButton
+                    onClick={() => dispatch(Logout())}
+                    title='Log Out'
+                    containerStyles='text-sm text-ascent-1 px-4 md:px-6 py-1 md:py-2 border border-[#666] rounded-full'
+                />
+            </div>
+        </div>
     </div>
   );
 }
