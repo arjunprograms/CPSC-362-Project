@@ -4,7 +4,7 @@ import { NoProfile } from '../assets';
 import { Link } from 'react-router-dom';
 import { LiaEditSolid } from "react-icons/lia";
 import { UpdateProfile } from "../redux/userSlice";
-import { BsBriefcase, BsPersonFillAdd } from 'react-icons/bs';
+import { BsBriefcase, BsFacebook, BsInstagram, BsPersonFillAdd, BsTwitterX } from 'react-icons/bs';
 import { CiLocationOn } from 'react-icons/ci';
 import moment from 'moment';
 
@@ -83,6 +83,27 @@ const ProfileCard = ({ user }) => {
                     <span className='text-ascent-1 text-base'>
                         {moment(user?.createdAt).fromNow()}
                     </span>
+                </div>
+            </div>
+
+            <div className='w-full flex flex-col gap-4 py-4 pb-6'>
+                <p className='text-ascent-1 text-lg font-semibold'>
+                    Social Profile
+                </p>
+
+                <div className='flex gap-2 items-center text-ascent-2'>
+                    <BsInstagram className='text-xl text-ascent-1'/>
+                    <span>Instagram</span>
+                </div>
+
+                <div className='flex gap-2 items-center text-ascent-2'>
+                    <BsTwitterX className='text-xl text-ascent-1'/>
+                    <span>X</span>
+                </div>
+
+                <div className='flex gap-2 items-center text-ascent-2'>
+                    <BsFacebook className='text-xl text-ascent-1'/>
+                    <span>Facebook</span>
                 </div>
             </div>
         </div>
