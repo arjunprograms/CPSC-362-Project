@@ -32,7 +32,7 @@ function Home() {
       {/* Center */}
       <div className='flex-1 h-full bg-primary px-4 flex flex-col gap-6 overflow-y-auto rounded-lg'>
         <form 
-          onSubmit={handlePostSubmit(handlePostSubmit)}
+          onSubmit={handleSubmit(handlePostSubmit)}
           className='bg-primary px-4 rounded-lg'>
           <div className='w-full flex items-center gap-2 py-4 border-b border-[#66666645]'>
             <img 
@@ -128,7 +128,13 @@ function Home() {
 
         {loading ? (<Loading/>) : posts?.length > 0 ? (
           posts?.map((post) => (
-            <PostCard />
+            <PostCard 
+              key={post?._id}
+              post={post}
+              user={user}
+              deletePost={() => {}}
+              likePost={() => {}}
+            />
           ))
         ) : (
           <div className='flex w-full h-full items-center justify-center'>
