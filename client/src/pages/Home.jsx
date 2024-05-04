@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { ProfileCard, TopBar, FriendsCard, CustomButton, TextInput, Loading } from '../components';
+import { ProfileCard, TopBar, FriendsCard, CustomButton, TextInput, Loading, EditProfile } from '../components';
 import { friends, friendRequest, requests, suggest, posts } from '../assets/data';
 import { Link } from 'react-router-dom';
 import { NoProfile } from '../assets';
@@ -10,7 +10,7 @@ import { BiImages, BiSolidVideo } from 'react-icons/bi'
 import PostCard from '../components/PostCard';
 
 function Home() {
-  const {user} = useSelector(state=> state.user);
+  const {user, edit} = useSelector(state=> state.user);
   const [friendRequest, setFriendRequest] = useState(requests);
   const [suggestedFriends, setSuggestedFriends] = useState(suggest);
   const {register, handleSubmit, formState: {errors}} = useForm();
@@ -20,7 +20,9 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const handlePostSubmit = async(data) => {}
 
-  return <div className='home w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-bgColor lg:rounded-lg h-screen overflow-hidden'>
+  return(
+    <>
+    <div className='home w-full px-0 lg:px-10 pb-20 2xl:px-40 bg-bgColor lg:rounded-lg h-screen overflow-hidden'>
     <TopBar />
 
     <div className='w-full flex gap-2 lg:gap-4 pt-5 pb-10 h-full'>
@@ -244,7 +246,9 @@ function Home() {
         </div>
       </div>
     </div>
-  </div>
+  </div> 
+    { edit && <EditProfile/>}
+  </>);
 }
 
-export default Home
+export default Home;
