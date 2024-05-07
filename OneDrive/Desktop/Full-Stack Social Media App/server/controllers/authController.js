@@ -19,7 +19,7 @@ export const register = async (req, res, next) => {
       return;
     }
 
-    const hashedPassword = await hashString(password);
+    const hashedPassword = await hashString(password); //28:10
 
     const user = await Users.create({
       firstName,
